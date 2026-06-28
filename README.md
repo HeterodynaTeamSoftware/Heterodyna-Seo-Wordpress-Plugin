@@ -1,7 +1,5 @@
 # Heterodyna Seo Wordpress Plugin
 
-# Heterodyna SEO
-
 ## English
 
 **Short repository description:**
