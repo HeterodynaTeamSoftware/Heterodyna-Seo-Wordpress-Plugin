@@ -128,7 +128,9 @@ Author: **Heterodyna Team Software**.
 * No remote commercial status reporting.
 * GPL-2.0-or-later licensed code.
 
-* <p align="center"> <img src="screenshots/english.jpg" alt="Heterodyna SEO WordPress plugin - English admin panel" width="900"> </p>
+<p align="center"> <img src="screenshots/english.jpg" alt="Heterodyna SEO WordPress plugin - English admin panel" width="900"> </p>
+
+
 
 ---
 
@@ -263,6 +265,8 @@ Autor: **Heterodyna Team Software**.
 * Brak zdalnego komercyjnego raportowania statusu.
 * Kod na licencji GPL-2.0-or-later.
 
+<p align="center"> <img src="screenshots/polish.jpg" alt="Heterodyna SEO WordPress plugin - polski panel administracyjny" width="900"> </p>
+
 ---
 
 ## Русский
@@ -395,3 +399,5 @@ Heterodyna SEO — это SEO-инструментарий с открытым �
 * Нет коммерческого endpoint’а активации.
 * Нет удалённой коммерческой отправки статуса.
 * Код распространяется под лицензией GPL-2.0-or-later.
+
+<p align="center"> <img src="screenshots/russian.jpg" alt="Heterodyna SEO WordPress plugin - Russian admin panel" width="900"> </p>
