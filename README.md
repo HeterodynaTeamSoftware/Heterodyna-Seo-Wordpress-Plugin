@@ -128,6 +128,8 @@ Author: **Heterodyna Team Software**.
 * No remote commercial status reporting.
 * GPL-2.0-or-later licensed code.
 
+* <p align="center"> <img src="screenshots/english.jpg" alt="Heterodyna SEO WordPress plugin - English admin panel" width="900"> </p>
+
 ---
 
 ## Polski
