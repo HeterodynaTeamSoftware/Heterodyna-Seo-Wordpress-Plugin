@@ -1,0 +1,393 @@
+/*
+  Heterodyna SEO — Admin UI (Light)
+  Stabilny jasny styl. Bez globalnego nadpisywania core WP.
+*/
+
+/*
+  WP admin bar safety fix for Heterodyna SEO pages.
+  Some themes/plugins can accidentally leave admin-bar dropdown wrappers visible,
+  which makes WordPress.org / Documentation / Visit site / New / Profile text
+  float over the Heterodyna SEO topbar. Keep them hidden unless the real admin
+  bar item is hovered/focused.
+*/
+#wpadminbar .ab-sub-wrapper{
+  display:none !important;
+}
+#wpadminbar .menupop:hover > .ab-sub-wrapper,
+#wpadminbar .menupop.hover > .ab-sub-wrapper,
+#wpadminbar .menupop:focus-within > .ab-sub-wrapper,
+#wpadminbar .ab-top-menu > li:hover > .ab-sub-wrapper,
+#wpadminbar .ab-top-menu > li.hover > .ab-sub-wrapper,
+#wpadminbar .ab-top-menu > li:focus-within > .ab-sub-wrapper{
+  display:block !important;
+}
+
+.het-seo-shell{
+  --het-bg:#f4f5f8;
+  --het-card:#ffffff;
+  --het-text:#111;
+  --het-muted:rgba(17,17,17,.68);
+  --het-accent:#7a00df;
+  --het-accent2:#b26bff;
+  --het-border:rgba(0,0,0,.10);
+  --het-shadow:0 10px 25px rgba(0,0,0,.10);
+  --het-radius:18px;
+}
+
+.het-seo-shell{
+  margin:14px 0 0 0;
+  background:var(--het-bg);
+  border:1px solid var(--het-border);
+  border-radius:var(--het-radius);
+  box-shadow:var(--het-shadow);
+  overflow:hidden;
+  color:var(--het-text);
+}
+
+.het-seo-topbar{
+  position:relative;
+  z-index:1;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:12px;
+  min-height:52px;
+  padding:10px 12px;
+  background:linear-gradient(135deg, rgba(122,0,223,.70), rgba(178,107,255,.30));
+  border-bottom:1px solid rgba(0,0,0,.08);
+  overflow:hidden;
+}
+.het-seo-topbar__left{display:flex;align-items:center;gap:12px;min-width:0;flex:1 1 auto}
+.het-seo-logo{height:44px;width:auto;max-width:92px;object-fit:contain;display:block;filter: drop-shadow(0 6px 14px rgba(0,0,0,.20));flex:0 0 auto;}
+.het-seo-badge{
+  font-size:12px;
+  line-height:1.2;
+  padding:4px 10px;
+  border-radius:999px;
+  background:rgba(255,255,255,.18);
+  color:#fff;
+  border:1px solid rgba(255,255,255,.26);
+  white-space:nowrap;
+  overflow:hidden;
+  text-overflow:ellipsis;
+  max-width:360px;
+}
+.het-seo-topbar__right{color:#fff;font-size:12px;opacity:.95;white-space:nowrap;flex:0 0 auto}
+
+
+@media (max-width: 900px){
+  .het-seo-topbar{align-items:flex-start;flex-direction:column;overflow:visible;}
+  .het-seo-topbar__right{white-space:normal;}
+  .het-seo-badge{max-width:100%;white-space:normal;}
+  .het-seo-nav{top:46px;overflow-x:auto;}
+}
+
+.het-seo-nav{
+  position:sticky;
+  top:32px;
+  z-index:20;
+  display:flex;
+  gap:8px;
+  padding:10px 12px;
+  background:rgba(255,255,255,.70);
+  border-bottom:1px solid var(--het-border);
+  backdrop-filter:blur(10px);
+}
+.het-seo-nav__tab{
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
+  padding:8px 12px;
+  border-radius:12px;
+  text-decoration:none;
+  color:var(--het-text);
+  border:1px solid transparent;
+}
+.het-seo-nav__tab:hover{background:rgba(122,0,223,.06);}
+.het-seo-nav__tab.is-active{
+  border-color:rgba(122,0,223,.18);
+  background:rgba(122,0,223,.10);
+}
+
+.het-seo-content{padding:12px 12px 16px 12px;color:var(--het-text)}
+
+.het-seo-card{
+  background:linear-gradient(180deg, #ffffff, rgba(122,0,223,.06));
+  border:1px solid var(--het-border);
+  border-radius:var(--het-radius);
+  padding:12px;
+}
+.het-seo-card__title{display:flex;align-items:center;gap:10px;font-weight:700;font-size:14px;margin-bottom:6px}
+.het-seo-card__sub{color:var(--het-muted);font-size:12px;line-height:1.4}
+.het-muted{color:var(--het-muted)}
+.het-small{font-size:12px}
+
+.het-grid2{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+@media (max-width: 1100px){.het-grid2{grid-template-columns:1fr}}
+
+.het-acc{display:flex;flex-direction:column;gap:12px}
+.het-acc__item{border-radius:var(--het-radius);overflow:hidden;border:1px solid var(--het-border);background:#fff}
+.het-acc__hdr{
+  width:100%;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:12px;
+  padding:10px 12px;
+  cursor:pointer;
+  background:transparent;
+  border:0;
+  color:var(--het-text);
+  font-weight:700;
+}
+.het-acc__hdr .dashicons{opacity:.75}
+.het-acc__chev{transition:transform .18s ease}
+.het-acc__body{display:none;padding:10px 12px;background:rgba(122,0,223,.05)}
+.het-acc__item.is-open .het-acc__body{display:block}
+.het-acc__item.is-open .het-acc__chev{transform:rotate(180deg)}
+
+.het-links{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
+@media (max-width: 1200px){.het-links{grid-template-columns:1fr}}
+.het-link{
+  display:flex;gap:12px;align-items:flex-start;
+  padding: 10px;
+  border-radius:16px;
+  border:1px solid var(--het-border);
+  background:#fff;
+  text-decoration:none;
+  color:var(--het-text);
+}
+.het-link:hover{border-color:rgba(122,0,223,.22);box-shadow:0 10px 18px rgba(0,0,0,.06);}
+.het-link__icon{width:34px;height:34px;border-radius:12px;display:inline-flex;align-items:center;justify-content:center;background:rgba(122,0,223,.10);color:var(--het-accent)}
+.het-link__title{font-weight:700;margin:0 0 2px 0}
+.het-link__desc{margin:0;color:var(--het-muted);font-size:12px;line-height:1.35}
+
+/* mini tiles (KPI) */
+.het-mini-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+@media (max-width: 1200px){.het-mini-grid{grid-template-columns:1fr}}
+.het-mini-tile{
+  border-radius:16px;
+  border:1px solid var(--het-border);
+  background:linear-gradient(135deg, rgba(122,0,223,.10), rgba(178,107,255,.05));
+  padding:12px;
+  color:var(--het-text);
+}
+.het-mini-tile__label{color:var(--het-muted);font-size:12px;margin:0 0 4px 0}
+.het-mini-tile__value{font-weight:800;font-size:22px;margin:0}
+
+/* System files status pills */
+.het-pill{
+  display:inline-flex;
+  align-items:center;
+  gap:6px;
+  padding:3px 10px;
+  border-radius:999px;
+  border:1px solid rgba(0,0,0,.10);
+  background:#fff;
+  color:var(--het-text);
+  font-size:12px;
+}
+.het-pill.is-ok{border-color:rgba(20,140,60,.25)}
+.het-pill.is-bad{border-color:rgba(220,50,50,.25)}
+
+/* WP tables & controls inside our pages: keep them readable (light) */
+.het-seo-shell table.widefat,
+.het-seo-shell .wp-list-table,
+.het-seo-shell .form-table{
+  background:#fff;
+  color:var(--het-text);
+}
+.het-seo-shell table.widefat th,
+.het-seo-shell table.widefat td,
+.het-seo-shell .wp-list-table th,
+.het-seo-shell .wp-list-table td,
+.het-seo-shell .form-table th,
+.het-seo-shell .form-table td{color:var(--het-text)}
+.het-seo-shell table.widefat a,
+.het-seo-shell .wp-list-table a,
+.het-seo-shell .form-table a{color:#135e96;text-decoration:underline}
+
+.het-seo-shell input[type="text"],
+.het-seo-shell input[type="url"],
+.het-seo-shell input[type="number"],
+.het-seo-shell input[type="email"],
+.het-seo-shell input[type="password"],
+.het-seo-shell textarea,
+.het-seo-shell select{
+  background:#fff;
+  color:var(--het-text);
+}
+
+/* Button safety: never white-on-white */
+.het-seo-shell .wp-core-ui .button,
+.het-seo-shell a.button{
+  color:#1d2327;
+}
+
+/* Notices */
+.het-seo-shell .notice{color:var(--het-text)}
+.het-seo-shell .notice a{color:#135e96;text-decoration:underline}
+
+/* Small helpers */
+.het-row{display:flex;gap:10px;flex-wrap:wrap;align-items:center}
+.het-spacer{height:10px}
+
+
+/* Center dashboard cards */
+
+.het-seo-dash{
+  display:grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap:14px;
+  margin: 14px 0 16px;
+}
+@media (max-width: 1100px){
+  .het-seo-dash{ grid-template-columns: 1fr; }
+}
+
+.het-seo-dash__card{
+  background:#fff;
+  border:1px solid rgba(0,0,0,.08);
+  border-radius:14px;
+  padding:14px 14px 12px;
+  box-shadow: 0 6px 20px rgba(0,0,0,.05);
+  display:flex;
+  flex-direction:column;
+  min-height: 132px;
+}
+
+.het-seo-dash__kpi{ display:block; }
+.het-seo-dash__label{
+  font-weight:700;
+  font-size:13px;
+  color:#111;
+  display:flex;
+  align-items:center;
+  gap:8px;
+  margin-bottom: 8px;
+}
+.het-seo-dash__value{
+  font-size: 26px;
+  font-weight: 800;
+  color:#111;
+  line-height: 1.05;
+  margin-bottom: 6px;
+}
+.het-seo-dash__unit{
+  font-size: 12px;
+  font-weight: 700;
+  color:#666;
+  margin-left: 6px;
+}
+.het-seo-dash__hint{
+  font-size: 12px;
+  color:#666;
+  margin-top: 4px;
+  max-width: 100%;
+  overflow:hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/* Small sparkline: subtle, not dominant */
+.het-seo-dash__spark{
+  width: 120px;
+  height: 28px;
+  margin-top: 10px;
+  margin-left: auto;
+  border-radius: 10px;
+  background: rgba(0,0,0,.03);
+  border: 1px solid rgba(0,0,0,.06);
+  padding: 4px 6px;
+  color: #7a00df;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+.het-seo-dash__spark svg{ width:100%; height:100%; display:block; }
+
+.het-seo-dash__actions{
+  margin-top:auto;
+  display:flex;
+  flex-wrap:wrap;
+  gap:8px;
+  padding-top: 12px;
+}
+
+/* Make WP small buttons look consistent inside cards */
+.het-seo-dash__actions .button{
+  border-radius: 999px;
+  padding: 2px 10px;
+  line-height: 24px;
+  height: auto;
+}
+
+/* === DATA CORE (v03.01) — Centrum-style components === */
+.het-card{
+  background:var(--het-card);
+  border:1px solid var(--het-border);
+  border-radius:var(--het-radius);
+  box-shadow:0 10px 18px rgba(0,0,0,.06);
+  padding:14px;
+  margin-bottom:14px;
+}
+.het-card__head{display:flex;align-items:center;justify-content:space-between;gap:10px;flex-wrap:wrap}
+.het-card__actions{display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+.het-metrics{display:grid;grid-template-columns:repeat(6,1fr);gap:10px}
+@media (max-width: 1200px){.het-metrics{grid-template-columns:repeat(2,1fr)}}
+.het-metric{border:1px solid var(--het-border);border-radius:14px;padding:10px;background:rgba(122,0,223,.04)}
+.het-metric__label{font-size:12px;color:var(--het-muted);margin-bottom:4px}
+.het-metric__value{font-size:18px;font-weight:800;letter-spacing:-.02em}
+
+
+/* Tabs (WOW) */
+.het-tabs{display:flex;gap:8px;flex-wrap:wrap}
+.het-tab{display:inline-block;padding:8px 12px;border:1px solid #d0d7de;border-radius:10px;background:#fff;text-decoration:none;color:#1f2328;font-weight:600}
+.het-tab:hover{background:#f6f8fa}
+.het-tab.is-active{border-color:#7a00df;box-shadow:0 0 0 2px rgba(122,0,223,.12) inset}
+
+/* Socialmedia compact tools (horizontal) */
+.het-sm-tools{display:flex;flex-direction:column;gap:10px}
+.het-sm-tools__row{display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+.het-sm-tools__label{font-weight:700;color:var(--het-text);min-width:170px}
+.het-actionbar{display:flex;flex-wrap:wrap;gap:8px}
+.het-action{
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
+  padding:8px 10px;
+  border-radius:999px;
+  border:1px solid var(--het-border);
+  background:#fff;
+  color:var(--het-text);
+  text-decoration:none;
+  font-weight:700;
+  font-size:12px;
+}
+.het-action .dashicons{font-size:18px;width:18px;height:18px;opacity:.8}
+.het-action:hover{border-color:rgba(122,0,223,.22);box-shadow:0 10px 18px rgba(0,0,0,.06)}
+@media (max-width: 900px){.het-sm-tools__label{min-width:100%}}
+
+/* UI density */
+.het-seo-shell.het-density-compact .het-seo-content{padding:12px}
+.het-seo-shell.het-density-compact .het-seo-card{padding:12px;margin-bottom:12px}
+.het-seo-shell.het-density-compact .het-seo-nav__tab{padding:8px 10px}
+.het-seo-shell.het-density-compact .het-acc__hdr{padding:10px 12px}
+.het-seo-shell.het-density-compact .het-acc__body{padding:12px}
+.het-seo-shell.het-density-compact .form-table th{padding:10px 10px 10px 0}
+.het-seo-shell.het-density-compact .form-table td{padding:10px 0}
+.het-seo-shell.het-density-compact .het-action{padding:6px 10px}
+
+.het-seo-shell.het-density-comfortable .het-seo-content{padding:16px}
+.het-seo-shell.het-density-comfortable .het-seo-card{padding:16px;margin-bottom:16px}
+.het-seo-shell.het-density-comfortable .het-acc__hdr{padding:14px 14px}
+.het-seo-shell.het-density-comfortable .het-acc__body{padding:16px}
+
+/* Socialmedia ultra-compact (opt-in) */
+.het-seo-shell.het-sm-ultra .het-acc__hdr{padding:8px 10px}
+.het-seo-shell.het-sm-ultra .het-acc__body{padding:10px}
+.het-seo-shell.het-sm-ultra .het-seo-card{padding:10px;margin-bottom:10px}
+.het-seo-shell.het-sm-ultra .form-table th{padding:8px 8px 8px 0}
+.het-seo-shell.het-sm-ultra .form-table td{padding:8px 0}
+.het-seo-shell.het-sm-ultra textarea.large-text{min-height:84px}
+.het-seo-shell.het-sm-ultra .het-action{padding:5px 9px}

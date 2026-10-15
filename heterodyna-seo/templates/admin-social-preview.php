@@ -1,0 +1,1 @@
+<?php echo '<h1>Social Preview</h1><p>Podgląd OG/Twitter.</p>';

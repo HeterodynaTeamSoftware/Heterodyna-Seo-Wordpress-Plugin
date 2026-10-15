@@ -1,0 +1,1 @@
+<?php echo '<h1>Rekomendacje</h1><p>Checklisty per tryb witryny.</p>';
